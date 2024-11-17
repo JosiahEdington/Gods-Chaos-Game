@@ -6,8 +6,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AbilityResponse {
-    private long abilityId;
-    private int abilityNumber;
+    private Long abilityId;
+    private Integer abilityNumber;
     private String abilityName;
     private String abilityTrigger;
     private String abilityEffect;

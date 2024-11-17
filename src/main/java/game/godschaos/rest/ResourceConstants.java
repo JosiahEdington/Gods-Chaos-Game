@@ -1,7 +1,7 @@
 package game.godschaos.rest;
 
 public class ResourceConstants {
-    public static final String BASE_URL = "http://localhost:8080";
+    public static final String BASE_URL = "/v1";
 
     public static final String API_URL = BASE_URL + "/api";
 

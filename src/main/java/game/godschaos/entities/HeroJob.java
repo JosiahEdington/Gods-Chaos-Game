@@ -6,7 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.security.Timestamp;
+import java.time.LocalDateTime;
+
 
 @Entity
 @Getter
@@ -14,7 +15,7 @@ import java.security.Timestamp;
 @Table(name = "Jobs")
 public class HeroJob {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "JobID")
     private Long JobId;
 
@@ -28,30 +29,30 @@ public class HeroJob {
     private String building;
 
     @Column(name = "PowerMultiplier")
-    private double powerMultiplier;
+    private Double powerMultiplier;
 
     @Column(name = "StrengthMultiplier")
-    private double strengthMultiplier;
+    private Double strengthMultiplier;
 
     @Column(name = "WisdomMultiplier")
-    private double wisdomMultiplier;
+    private Double wisdomMultiplier;
 
     @Column(name = "EnduranceMultiplier")
-    private double enduranceMultiplier;
+    private Double enduranceMultiplier;
 
     @Column(name = "StaminaMultiplier")
-    private double staminaMultiplier;
+    private Double staminaMultiplier;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;

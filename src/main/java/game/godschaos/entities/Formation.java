@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import java.util.Set;
 @Table(name = "Formations")
 public class Formation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "FormationID")
     private Long formationID;
 
@@ -24,26 +25,28 @@ public class Formation {
     @JoinColumn(name = "PlayerID", nullable = false, insertable = false, updatable = false)
     private Player player;
 
+    /**
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "FormationHeroID")
     private Set<PlayerHeroes>  playerHeroes = new HashSet<>();
+    **/
 
-    @Column(name = "FormationPower")
-    private Integer formationPower;
+    @Column(name = "TotalPower")
+    private Double totalPower;
 
-    @Column(name = "Troops")
-    private Integer troops;
+    @Column(name = "TotalTroops")
+    private Integer totalTroops;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;

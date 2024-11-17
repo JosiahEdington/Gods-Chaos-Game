@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.cglib.core.Local;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -15,72 +17,78 @@ import java.security.Timestamp;
 public class HeroLevels {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LevelID")
-    private Long levelID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "HeroLevelID")
+    private Long heroLevelID;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "HeroID", nullable = false, updatable = false, insertable = false)
     private Hero hero;
 
     @Column(name = "Level")
-    private int level;
+    private Integer level;
+
+    @Column(name = "LevelCap")
+    private Integer levelCap;
 
     @Column(name = "IsCap")
-    private boolean isCap;
+    private Boolean isCap;
+
+    @Column(name = "Star")
+    private Integer star;
 
     @Column(name = "CapRank")
-    private int cap;
+    private Integer capRank;
 
     @Column(name = "CapUnlock")
-    private int rank;
+    private Integer capUnlock;
 
     @Column(name = "Power")
-    private float power;
+    private Double power;
 
     @Column(name = "Strength")
-    private float strength;
+    private Double strength;
 
     @Column(name = "Wisdom")
-    private float wisdom;
+    private Double wisdom;
 
     @Column(name = "Endurance")
-    private float endurance;
+    private Double endurance;
 
     @Column(name = "Stamina")
-    private float stamina;
+    private Double stamina;
 
     @Column(name = "BreadNeeded")
-    private int breadNeeded;
+    private Integer breadNeeded;
 
     @Column(name = "BreadNeededFive")
-    private int breadNeededFive;
+    private Integer breadNeededFive;
 
     @Column(name = "BreadToGet")
-    private int breadToGet;
+    private Integer breadToGet;
 
     @Column(name = "HeroesNeeded")
-    private int heroesNeeded;
+    private Integer heroesNeeded;
 
     @Column(name = "UpLevels")
-    private int upLevels;
+    private Integer upLevels;
 
     @Column(name = "Unlocks")
     private String unlocks;
 
     @Column(name = "UnlocksValue")
-    private int unlocksValue;
+    private String unlocksValue;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;

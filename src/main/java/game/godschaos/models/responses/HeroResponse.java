@@ -1,22 +1,22 @@
 package game.godschaos.models.responses;
 
-import game.godschaos.entities.Ability;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 public class HeroResponse {
-    private long heroId;
+    private Long heroId;
     private String name;
-    private float power;
-    private float strength;
-    private float wisdom;
-    private float endurance;
-    private float stamina;
-    private List<AbilityResponse> abilities;
+    private Double power;
+    private Double strength;
+    private Double wisdom;
+    private Double endurance;
+    private Double stamina;
+    private Set<AbilityResponse> abilities;
 
     public HeroResponse() { super(); }
 

@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.cglib.core.Local;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +18,7 @@ import java.util.Set;
 @Table(name = "PlayerHeroes")
 public class PlayerHeroes {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PlayerHeroID")
     private Long PlayerHeroID;
 
@@ -49,30 +51,30 @@ public class PlayerHeroes {
     private Integer star;
 
     @Column(name = "Power")
-    private float power;
+    private Double power;
 
     @Column(name = "Strength")
-    private float strength;
+    private Double strength;
 
     @Column(name = "Wisdom")
-    private float wisdom;
+    private Double wisdom;
 
     @Column(name = "Endurance")
-    private float endurance;
+    private Double endurance;
 
     @Column(name = "Stamina")
-    private float stamina;
+    private Double stamina;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;

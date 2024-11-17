@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +16,7 @@ import java.util.Set;
 @Table(name = "Abilities")
 public class Ability {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "AbilityID")
     private Long abilityId;
 
@@ -47,27 +47,37 @@ public class Ability {
     @Column(name = "Result")
     private String result;
 
-    @Column(name = "MinRank")
-    private int minRank;
+    @Column(name = "Unlocks")
+    private String unlocks;
+
+    @Column(name = "UnlocksValue")
+    private String unlocksValue;
 
     @Column(name = "LevelUpRanks")
     private String levelUpRanks;
+
+    @Column(name = "Description")
+    private String description;
+
+    @Column(name = "MinRank")
+    private Integer minRank;
 
     @Column(name = "IsDeleted")
     private boolean isDeleted;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;
+
 
 }

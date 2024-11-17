@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.security.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +18,7 @@ import java.util.Set;
 @Table(name = "Heroes")
 public class Hero {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "HeroID")
     private Long heroId;
 
@@ -27,37 +29,40 @@ public class Hero {
     private String culture;
 
     @Column(name = "IsSTier")
-    private boolean isStier;
+    private Boolean isStier;
 
     @Column(name = "FighterType")
     private String fighterType;
 
     @Column(name = "BaseLevel")
-    private int baseLevel;
+    private Integer baseLevel;
 
     @Column(name = "MaxLevel")
-    private int maxLevel;
+    private Integer maxLevel;
 
     @Column(name = "BaseStar")
-    private int baseStar;
+    private Integer baseStar;
 
     @Column(name = "MaxStar")
-    private int maxStar;
+    private Integer maxStar;
 
     @Column(name = "BasePower")
-    private float basePower;
+    private Double basePower;
 
     @Column(name = "BaseStrength")
-    private float baseStrength;
+    private Double baseStrength;
 
     @Column(name = "BaseWisdom")
-    private float baseWisdom;
+    private Double baseWisdom;
 
     @Column(name = "BaseEndurance")
-    private float baseEndurance;
+    private Double baseEndurance;
 
     @Column(name = "BaseStamina")
-    private float baseStamina;
+    private Double baseStamina;
+
+    @Column(name = "MeasuredStar")
+    private Integer measuredStar;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "HeroAbilities",
@@ -69,21 +74,21 @@ public class Hero {
     private String icon;
 
     @Column(name = "IsDeleted")
-    private boolean isDeleted;
+    private Boolean isDeleted;
 
     @Column(name = "Description")
     private String description;
 
     @Column(name = "CreateDateTime")
     @CreationTimestamp
-    private Timestamp createDateTime;
+    private LocalDateTime createDateTime;
 
     @Column(name = "CreateBy")
     private String createBy;
 
     @Column(name = "UpdateDateTime")
     @UpdateTimestamp
-    private Timestamp updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @Column(name = "UpdateBy")
     private String updateBy;
