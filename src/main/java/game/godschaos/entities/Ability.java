@@ -18,7 +18,7 @@ public class Ability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "AbilityID")
-    private long abilityId;
+    private Long abilityId;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "HeroAbilities",

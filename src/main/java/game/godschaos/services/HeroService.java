@@ -9,7 +9,6 @@ import java.util.Optional;
 public interface HeroService {
     List<Hero> findAll();
     Optional<Hero> findById(long id);
-    List<Hero> findByAbility(Ability ability);
 
 }
 

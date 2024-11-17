@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class HeroServiceImpl implements HeroService {
-    private HeroRepository heroRepository;
+    private final HeroRepository heroRepository;
 
     @Autowired
     public HeroServiceImpl(HeroRepository heroRepository) {
@@ -25,6 +25,4 @@ public class HeroServiceImpl implements HeroService {
     @Override
     public Optional<Hero> findById(long id) { return heroRepository.findById(id); }
 
-    @Override
-    public List<Hero> findByAbility(Ability ability) { return heroRepository.findByAbility(ability); }
 }
