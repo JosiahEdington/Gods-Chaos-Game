@@ -26,6 +26,9 @@ public class Ability {
             inverseJoinColumns = @JoinColumn(name = "HeroID", nullable = false, insertable = false, updatable = false))
     private Set<Hero> heroes = new HashSet<>();
 
+    @Column(name = "Name")
+    private String name;
+
     @Column(name = "Sort")
     private int sort;
 

@@ -1,6 +1,7 @@
 package game.godschaos.config;
 
-import game.godschaos.converters.HeroEntityToHeroResponseConverter;
+import game.godschaos.converters.AbilityToAbilityResponseConverter;
+import game.godschaos.converters.HeroToHeroResponseConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -8,9 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.context.support.ConversionServiceFactoryBean;
-import org.springframework.core.convert.converter.GenericConverter;
-import org.springframework.core.convert.support.DefaultConversionService;
-import org.springframework.core.convert.support.GenericConversionService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +21,8 @@ public class ConversionConfig {
     private Set<Converter> getConverters() {
         Set<Converter> converters = new HashSet<>();
 
-        converters.add(new HeroEntityToHeroResponseConverter());
+        converters.add(new HeroToHeroResponseConverter(context));
+        converters.add(new AbilityToAbilityResponseConverter());
         return converters;
     }
 
