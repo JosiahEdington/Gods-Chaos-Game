@@ -11,6 +11,7 @@ public class AbilityResponse {
     private String abilityName;
     private String abilityTrigger;
     private String abilityEffect;
+    private String abilityDamage;
 
     public AbilityResponse() { super(); }
 }

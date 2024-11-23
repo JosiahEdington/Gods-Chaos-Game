@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS HEX */
+:root {
+    --egyptian: #F8CD24;
+    --nordic: #5DEF9A;
+    --greek: #8EEEFC;
+    --modern: #DC5C3C;
+    --star-five: #D2962D;
+    --star-six: #EB594C;
+    --chatroom-background: #f4f2f1; /* #F2E4D9 light-tan */
+    --chatroom-foreground: #EFD3BB; /* mid-tan */
+    --chatroom-header: #534947; /* Gray */
+    }
+    
+body {
+    background-color: var(--chatroom-background);
+}

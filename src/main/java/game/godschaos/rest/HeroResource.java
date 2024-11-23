@@ -40,7 +40,7 @@ public class HeroResource {
     PlayerRepository playerRepository;
 
 
-    @RequestMapping(path = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "/heroes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<HeroResponse>> getHeroes() {
         List<Hero> heroes = heroRepository.findAll();
         List<HeroResponse> heroResponses = new ArrayList<>();
