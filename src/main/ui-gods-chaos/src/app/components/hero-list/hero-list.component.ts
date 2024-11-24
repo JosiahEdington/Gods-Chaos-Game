@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../entities/Hero';
+import { Hero } from '../../entities/hero';
 import { HttpClient } from '@angular/common/http';
 import { Location, LocationStrategy } from '@angular/common';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-hero-list',
@@ -12,13 +13,15 @@ import { Location, LocationStrategy } from '@angular/common';
 })
 export class HeroListComponent implements OnInit {
   
-  private heroURL:string='http://localhost:8080';
   heroes!: Hero[];
   
+  constructor(private heroService:HeroesService) {}
 
   ngOnInit() {
-    this.
+    this.getHeroes();
   }
 
-
+  getHeroes() {
+    this.heroService.getAllHeroesList().subscribe(hero => this.heroes.push(hero));
+  }
 }

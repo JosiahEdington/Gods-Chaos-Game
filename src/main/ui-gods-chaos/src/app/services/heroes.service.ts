@@ -7,18 +7,18 @@ import { Hero } from '../entities/hero';
 @Injectable({
   providedIn: 'root'
 })
-export class HeroServiceService {
+export class HeroesService {
 
   private allHeroesUrl = environment.baseUrl + '/heroes'
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllHeroesList(theHeroId:number): Observable<Hero> {
+  getAllHeroesList(): Observable<Hero> {
     return this.getHeroes(this.allHeroesUrl);
   }
 
 
-  private getHeroes(searchUrl: string): Observable<Hero[]> {
+  private getHeroes(searchUrl: string): Observable<Hero> {
     return this.httpClient.get<GetResponseHeroes>(searchUrl).pipe(map(response => response._embedded.heroes));
   }
 
@@ -26,7 +26,7 @@ export class HeroServiceService {
 
 interface GetResponseHeroes {
   _embedded: {
-    heroes: Hero[];
+    heroes: Hero;
   },
   page: {
     size: number,
