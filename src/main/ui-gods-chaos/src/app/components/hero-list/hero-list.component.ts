@@ -3,11 +3,12 @@ import { Hero } from '../../entities/hero';
 import { HttpClient } from '@angular/common/http';
 import { Location, LocationStrategy } from '@angular/common';
 import { HeroesService } from '../../services/heroes.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-hero-list',
   standalone: true,
-  imports: [],
+  imports: [ ],
   templateUrl: './hero-list.component.html',
   styleUrl: './hero-list.component.css'
 })

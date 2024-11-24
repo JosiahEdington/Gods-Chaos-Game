@@ -16,15 +16,20 @@ import { routes } from './app.routes';
 
 
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
+    HttpClientModule,
+    HttpClient,
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
     NgModule
   ],
   providers: [
+    HttpClientModule,
     HomeService,
     HeroesService
   ]
