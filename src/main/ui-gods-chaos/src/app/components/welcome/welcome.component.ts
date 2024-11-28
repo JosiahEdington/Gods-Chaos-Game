@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../../services/home.service';
+import { AppResponseService } from '../../services/app-responses.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AppResponses } from '../../entities/app-responses';
 
 @Component({
   selector: 'app-welcome',
@@ -10,17 +11,20 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrl: './welcome.component.css'
 })
 export class WelcomeComponent implements OnInit {
-  welcomeMessage!: string;
+  appResponse!: AppResponses;
 
   ngOnInit(): void {
     this.getWelcomeMessage();
   }
 
-  constructor(private homeService: HomeService) {}
+  constructor(private responseService: AppResponseService) {}
 
   getWelcomeMessage() {
-    this.homeService.getWelcomeMessage();
+    this.responseService.getWelcomeMessage().subscribe(
+      message => this.appResponse = message
+    );
     
   }
 
 }
+

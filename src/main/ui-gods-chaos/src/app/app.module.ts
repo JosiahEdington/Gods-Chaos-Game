@@ -8,7 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeService } from './services/home.service';
+import { FormsModule } from '@angular/forms';
+import { AppResponseService } from './services/app-responses.service';
 import { HeroesService } from './services/heroes.service';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -17,7 +18,10 @@ import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroListComponent,
+    WelcomeComponent,
+    HeroListComponent
   ],
   imports: [
     HttpClientModule,
@@ -30,7 +34,7 @@ import { routes } from './app.routes';
   ],
   providers: [
     HttpClientModule,
-    HomeService,
+    AppResponseService,
     HeroesService
   ]
 })

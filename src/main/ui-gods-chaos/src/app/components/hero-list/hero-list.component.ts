@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../entities/hero';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Location, LocationStrategy } from '@angular/common';
 import { HeroesService } from '../../services/heroes.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { HeroComponent } from '../hero/hero.component';
 
 @Component({
   selector: 'app-hero-list',
   standalone: true,
-  imports: [ ],
+  imports: [ CommonModule ],
   templateUrl: './hero-list.component.html',
   styleUrl: './hero-list.component.css'
 })
@@ -23,6 +25,8 @@ export class HeroListComponent implements OnInit {
   }
 
   getHeroes() {
-    this.heroService.getAllHeroesList().subscribe(hero => this.heroes.push(hero));
+    this.heroService.getAllHeroesList().subscribe(
+      hero => this.heroes = hero
+    );
   }
 }
