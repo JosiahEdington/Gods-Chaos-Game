@@ -4,7 +4,7 @@ export class Hero {
     heroId!: number;
     name!: string;
     power!: number;
-    type!: string;
+    fighterType!: string;
     culture!: string;
     strength!: number;
     wisdom!: number;
