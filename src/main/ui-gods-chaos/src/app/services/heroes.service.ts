@@ -19,7 +19,5 @@ export class HeroesService {
     return this.httpClient.get<Hero[]>(this.allHeroesUrl);
   }
 
-  getCollectionList(theUsername: string): Observable<Hero[]> {
-    return this.httpClient.get<Hero[]>(`${this.collectionUrl}/search/findByUsernameContaining?name=${theUsername}`);
-  }
+
 }

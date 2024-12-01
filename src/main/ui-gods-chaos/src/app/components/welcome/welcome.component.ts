@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppResponseService } from '../../services/app-responses.service';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { AppResponses } from '../../entities/app-responses';
+import { AppResponses } from '../../app-responses';
 
 @Component({
   selector: 'app-welcome',

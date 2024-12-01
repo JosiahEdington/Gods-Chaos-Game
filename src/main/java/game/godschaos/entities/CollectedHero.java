@@ -5,22 +5,18 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.cglib.core.Local;
 
-import java.security.Timestamp;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "PlayerHeroes")
-public class PlayerHeroes {
+@Table(name = "Collection")
+public class Collections {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PlayerHeroID")
-    private Long PlayerHeroID;
+    @Column(name = "CollectionID")
+    private Long collectionID;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PlayerID", nullable = false, insertable = false, updatable = false)

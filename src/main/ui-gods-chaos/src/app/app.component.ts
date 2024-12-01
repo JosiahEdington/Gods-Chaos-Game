@@ -6,7 +6,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { HeroListComponent } from "./components/hero-list/hero-list.component";
 import { AppResponseService } from './services/app-responses.service';
-import { AppResponses } from './entities/app-responses';
+import { AppResponses } from './app-responses';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,6 @@ import { AppResponses } from './entities/app-responses';
     FormsModule,
     RouterOutlet, 
     NavbarComponent, 
-    WelcomeComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

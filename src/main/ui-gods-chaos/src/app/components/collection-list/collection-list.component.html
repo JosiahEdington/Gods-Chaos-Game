@@ -7,12 +7,12 @@
         <div class="max-w mt-2 mb-5 grid grid-cols-1 gap-x-6 sm:grid-cols-6">
                 <form class="sm:col-span-3 sm:col-start-2">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" class="border-2 border-gray-600 rounded-md px-2 py-1 placeholder:text-gray-500" aria-placeholder="Username" placeholder="Username" >
+                    <input type="text" id="username" name="username" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 placeholder:text-gray-500" aria-placeholder="Username" placeholder="Username" >
                 </form>
 
                 <form class="sm:col-span-2 sm:col-start-5">
                     <label for="sort_heroes_by">Sort By:</label>
-                    <select id="sort_heroes_by" name="sort_heroes_by" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1" aria-placeholder="Default">
+                    <select id="sort_heroes_by" name="sort_heroes_by" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 bg-white" aria-placeholder="Default">
                         <option value="Default">Default</option>
                         <option value="Name">Name</option>
                         <option value="Culture">Culture</option>
@@ -21,38 +21,41 @@
                     </select>
                 </form>
         </div>
-    <table class="table-auto">
-        <thead class="text-left border-b-2 border-black">
-            <th class="px-3">Owned</th>
-            <th class="px-5">Hero Name</th>
-            <th class="px-5">Culture</th>
-            <th class="px-5">Power</th>
-            <th class="px-3">Strength</th>
-            <th class="px-3">Wisdom</th>
-            <th class="px-3">Endurance</th>
-            <th class="px-3">Stamina</th>
-        </thead>
-        <tbody class="">
-            <tr *ngFor="let hero of heroes" >
-                <td class="px-3 text-center">
-                    <input id="owned_hero" name="owned_hero" type="checkbox" class="size-4 align-middle">
-                </td>
-                <td class="px-5" [ngSwitch]="hero.culture" >
-                    <div *ngSwitchCase="'Egyptian'" class="bg-egyptian-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
-                    <div *ngSwitchCase="'Greek'" class="bg-greek-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
-                    <div *ngSwitchCase="'Norse'" class="bg-norse-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
-                    <div *ngSwitchCase="'Modern'" class="bg-modern-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
-                    <!-- td *ngSwitchDefault>{{ hero.name }}</td -->
-                </td >
-                <td class="px-5">{{ hero.culture }}</td>
-                <td class="px-5 text-center">{{ hero.power }}</td>
-                <td class="px-3 text-center">{{ hero.strength }}</td>
-                <td class="px-3 text-center">{{ hero.wisdom }}</td>
-                <td class="px-3 text-center">{{ hero.endurance }}</td>
-                <td class="px-3 text-center">{{ hero.stamina }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div *ngFor="let collection of collections" class="my-4">
+        @if ( collection.player.username === username) {
+        <div>
+            <h1 class="text-xl mt-5"><strong>{{ collection.player.username }}</strong> and {{ username }}</h1>
+        </div>
+
+        <table class="table-auto">
+            <thead class="text-left border-b-2 border-black">
+                <th class="px-5">Hero Name</th>
+                <th class="px-5">Culture</th>
+                <th class="px-5">Power</th>
+                <th class="px-3">Strength</th>
+                <th class="px-3">Wisdom</th>
+                <th class="px-3">Endurance</th>
+                <th class="px-3">Stamina</th>
+            </thead>
+            <tbody class="">
+                    <tr *ngFor="let collectedHero of collection.collectedHeroes" >
+                        <td class="px-5" [ngSwitch]="collectedHero.hero.culture" >
+                            <div *ngSwitchCase="'Egyptian'" class="bg-egyptian-100 px-3 py-1 rounded-xl"><strong>{{ collectedHero.hero.name }}</strong></div>
+                            <div *ngSwitchCase="'Greek'" class="bg-greek-100 px-3 py-1 rounded-xl"><strong>{{ collectedHero.hero.name }}</strong></div>
+                            <div *ngSwitchCase="'Norse'" class="bg-norse-100 px-3 py-1 rounded-xl"><strong>{{ collectedHero.hero.name }}</strong></div>
+                            <div *ngSwitchCase="'Modern'" class="bg-modern-100 px-3 py-1 rounded-xl"><strong>{{ collectedHero.hero.name }}</strong></div>
+                        </td >
+                        <td class="px-5">{{ collectedHero.hero.culture }}</td>
+                        <td class="px-5 text-center">{{ collectedHero.hero.power }}</td>
+                        <td class="px-3 text-center">{{ collectedHero.hero.strength }}</td>
+                        <td class="px-3 text-center">{{ collectedHero.hero.wisdom }}</td>
+                        <td class="px-3 text-center">{{ collectedHero.hero.endurance }}</td>
+                        <td class="px-3 text-center">{{ collectedHero.hero.stamina }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    }
+    </div>
 </div>
 
 
