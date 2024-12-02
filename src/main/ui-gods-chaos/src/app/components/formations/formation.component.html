@@ -1,0 +1,111 @@
+<div class="mx-auto my-6 max-w-7x1 px-2 sm:px-6 lx:px-8">
+    <div class="float-left">
+        <div class="max-w mt-5 border-b-2 border-black">
+            <h1 class="text-3xl"><strong>Formations</strong></h1>
+        </div>
+                <div class="rounded-lg px-3 py-2 mx-5 mt-5 mb-2">
+                    <h2 class="text-xl"><strong>First Formation</strong></h2>
+                    <div cdkDropList #firstList="cdkDropList" [cdkDropListData]="formationOne"
+                        [cdkDropListConnectedTo]="[heroesList, secondList, thirdList, fourthList, fifthList]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                    @if( formationOne.length === 0) {
+                        <div class="border-gray-500 border-2 bg-gray-300 rounded-2xl px-3 py-2 my-2">No hero assigned</div>
+                    } @else {
+                        @for (hero of formationOne; track hero) {
+                            <div class="border-gray-500 border-2 bg-white rounded-2xl px-3 py-2 my-2" cdkDrag>{{hero.name}}</div>
+                        }
+                    }
+                    </div>
+                </div>
+                <div class="rounded-lg px-3 py-2 mx-5 mt-5 mb-2">
+                    <h2 class="text-xl"><strong>Second Formation</strong></h2>
+                    <div cdkDropList #secondList="cdkDropList" [cdkDropListData]="formationTwo"
+                        [cdkDropListConnectedTo]="[heroesList, firstList, thirdList, fourthList, fifthList]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                    @if( formationTwo.length === 0) {
+                        <div class="border-gray-500 border-2 bg-gray-300 rounded-2xl px-3 py-2 my-2">No hero assigned</div>
+                    } @else {
+                        @for (hero of formationTwo; track hero) {
+                            <div class="border-gray-500 border-2 bg-white rounded-2xl px-3 py-2 my-2" cdkDrag>{{hero.name}}</div>
+                        }
+                    }
+                    </div>
+                </div>
+                <div class="rounded-lg px-3 py-2 mx-5 mt-5 mb-2">
+                    <h2 class="text-xl"><strong>Third Formation</strong></h2>
+                    <div cdkDropList #thirdList="cdkDropList" [cdkDropListData]="formationThree"
+                        [cdkDropListConnectedTo]="[heroesList, firstList, secondList, fourthList, fifthList]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                    @if( formationThree.length === 0) {
+                        <div class="border-gray-500 border-2 border-spacing-3 bg-gray-300 rounded-2xl px-3 py-2 my-2">No hero assigned</div>
+                    } @else {
+                        @for (hero of formationThree; track hero) {
+                            <div class="border-gray-500 border-2 bg-white rounded-2xl px-3 py-2 my-2" cdkDrag>{{hero.name}}</div>
+                        }
+                    }
+                    </div>
+                </div>
+                <div class="rounded-lg px-3 py-2 mx-5 mt-5 mb-2">
+                    <h2 class="text-xl"><strong>Fourth Formation</strong></h2>
+                    <div cdkDropList #fourthList="cdkDropList" [cdkDropListData]="formationFour"
+                        [cdkDropListConnectedTo]="[heroesList, firstList, secondList, thirdList, fifthList]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                    @if( formationFour.length === 0) {
+                        <div class="border-gray-500 border-2 bg-gray-300 rounded-2xl px-3 py-2 my-2">No hero assigned</div>
+                    } @else {
+                        @for (hero of formationFour; track hero) {
+                            <div class="border-gray-500 border-2 bg-white rounded-2xl px-3 py-2 my-2" cdkDrag>{{hero.name}}</div>
+                        }
+                    }
+                    </div>
+                </div>
+                <div class="rounded-lg px-3 py-2 mx-5 mt-5 mb-2">
+                    <h2 class="text-xl"><strong>Fifth Formation</strong></h2>
+                    <div cdkDropList #fifthList="cdkDropList" [cdkDropListData]="formationFive"
+                        [cdkDropListConnectedTo]="[heroesList, firstList, secondList, thirdList, fourthList]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                    @if( formationFive.length === 0) {
+                        <div class="border-gray-500 border-2 bg-gray-300 rounded-2xl px-3 py-2 my-2">No hero assigned</div>
+                    } @else {
+                        @for (hero of formationFive; track hero) {
+                            <div class="border-gray-500 border-2 bg-white rounded-2xl px-3 py-2 my-2" cdkDrag>{{hero.name}}</div>
+                        }
+                    }
+                    </div>
+                </div>
+
+
+                <div class="mx-5 mt-5">
+                    <div class="rounded-lg px-3 py-2 mb-2">
+                        <h2 class="text-xl"><strong>All Heroes</strong></h2>
+
+                        <div cdkDropList #heroesList="cdkDropList" [cdkDropListData]="heroes"
+                            [cdkDropListConnectedTo]="[firstList, secondList, thirdList, fourthList, fifthList]" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                        <div class="table border-spacing-y-2 rounded-3xl">
+                                <div class="table-header-group">
+                                    <div class="table-cell px-3"></div>
+                                    <div class="table-cell px-3">Hero</div>
+                                    <div class="table-cell px-3">Primary</div>
+                                    <div class="table-cell px-3">Trigger</div>
+                                    <div class="table-cell px-3">Result</div>
+                                </div>
+
+                        @for (hero of heroes; track hero) {
+                            <div class="table-row-group border-2 border-spacing-6 rounded-2xl border-gray-500  bg-white px-3 py-1 my-2" cdkDrag>
+                                <div class="table-cell px-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 448 512">
+                                        <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+                                    </div>
+                                <div class="table-cell bg-egyptian-100 rounded-xl w-10 py-2 px-3">{{hero.name}}</div>
+                                <div class="table-cell py-2 px-3">{{hero.ability1.abilityEffect}}</div>
+                                <div class="table-cell py-2 px-3">{{hero.ability3.abilityTrigger}}</div>
+                                <div class="table-cell px-3">{{hero.ability3.abilityEffect}}</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
