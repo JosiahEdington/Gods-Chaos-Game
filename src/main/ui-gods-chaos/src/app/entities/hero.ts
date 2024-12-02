@@ -10,5 +10,7 @@ export class Hero {
     wisdom!: number;
     endurance!: number;
     stamina!: number;
-    abilities!: Ability[];
+    ability1!: Ability;
+    ability2!: Ability;
+    ability3!: Ability;
 }

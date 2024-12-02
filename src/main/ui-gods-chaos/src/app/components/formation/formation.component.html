@@ -1,0 +1,67 @@
+<div class="mx-auto my-6 max-w-7x1 px-2 sm:px-6 lx:px-8">
+    <div class="float-left">
+        <div class="max-w mt-5 border-b-2 border-black">
+            <h1 class="text-3xl"><strong>Formations</strong></h1>
+        </div>
+        <div class="mx-5 mt-5">
+            <h2 class="text-xl"><strong>Ability Effects</strong></h2>
+            <div class="max-w mt-1 mb-5 grid grid-cols-1 gap-x-6 sm:grid-cols-6">
+                <p class="sm:col-start-1 bg-red-300 rounded-3xl px-3 py-2 text-center"><strong>Knock-Down</strong></p>
+                <p class="sm:col-start-2 bg-orange-300 rounded-3xl px-3 py-2 text-center"><strong>Knock-Back</strong></p>
+                <p class="sm:col-start-3 bg-blue-300 rounded-3xl px-3 py-2 text-center"><strong>Mid-Air</strong></p>
+                <p class="sm:col-start-4 bg-purple-300 rounded-3xl px-3 py-2 text-center"><strong>Flying</strong></p>
+                <p class="sm:col-start-5 bg-green-300 rounded-3xl px-3 py-2 text-center"><strong>Healing</strong></p>
+                <p class="sm:col-start-6 bg-gray-300 rounded-3xl px-3 py-2 text-center"><strong>N/A</strong></p>
+            </div>
+        </div>
+        <div class="max-w mt-2 mb-5 grid grid-cols-1 gap-x-6 sm:grid-cols-6">
+
+        </div>
+
+        <table class="table-auto">
+            <thead class="text-left border-b-2 border-black">
+                <th class="px-5">Hero Name</th>
+                <th class="px-5">Result State</th>
+                <th class="px-5">Triggered By</th>
+                <th class="px-5">Effect State</th>
+            </thead>
+            <tbody class="">
+                <tr *ngFor="let hero of heroes" >
+                    <td class="px-5 border-r-2 border-black" [ngSwitch]="hero.culture" >
+                        <div *ngSwitchCase="'Egyptian'" class="bg-egyptian-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
+                        <div *ngSwitchCase="'Greek'" class="bg-greek-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
+                        <div *ngSwitchCase="'Norse'" class="bg-norse-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
+                        <div *ngSwitchCase="'Modern'" class="bg-modern-100 px-3 py-1 rounded-xl"><strong>{{ hero.name }}</strong></div>
+                        <!-- td *ngSwitchDefault>{{ hero.name }}</td -->
+                    </td >
+                    <td class="px-5" [ngSwitch]="hero.ability1.abilityEffect">
+                            <div *ngSwitchCase="'Knock-Down'" class="bg-red-300 px-3 py-1 rounded-3xl text-center">Knock-Down</div>
+                            <div *ngSwitchCase="'Knock-Back'" class="bg-orange-300 px-3 py-1 rounded-3xl text-center">Knock-Back</div>
+                            <div *ngSwitchCase="'Mid-Air'" class="bg-blue-300 px-3 py-1 rounded-3xl text-center">Mid-Air</div>
+                            <div *ngSwitchCase="'Flying'" class="bg-purple-300 px-3 py-1 rounded-3xl text-center">Flying</div>
+                            <div *ngSwitchCase="'Healing'" class="bg-green-300 px-3 py-1 rounded-3xl text-center">Healing</div>
+                            <div *ngSwitchCase="'NA'" class="bg-gray-300 px-3 py-1 rounded-3xl text-center">N/A</div>
+                    </td>
+                    <td class="px-5" [ngSwitch]="hero.ability3.abilityTrigger">
+                            <div *ngSwitchCase="'Knock-Down'" class="bg-red-300 px-3 py-1 rounded-3xl text-center">Knock-Down</div>
+                            <div *ngSwitchCase="'Knock-Back'" class="bg-orange-300 px-3 py-1 rounded-3xl text-center">Knock-Back</div>
+                            <div *ngSwitchCase="'Mid-Air'" class="bg-blue-300 px-3 py-1 rounded-3xl text-center">Mid-Air</div>
+                            <div *ngSwitchCase="'Flying'" class="bg-purple-300 px-3 py-1 rounded-3xl text-center">Flying</div>
+                            <div *ngSwitchCase="'Healing'" class="bg-green-300 px-3 py-1 rounded-3xl text-center">Healing</div>
+                            <div *ngSwitchCase="'NA'" class="bg-gray-300 px-3 py-1 rounded-3xl text-center">N/A</div>
+                    </td>
+                    <td class="px-5" [ngSwitch]="hero.ability3.abilityEffect">
+                            <div *ngSwitchCase="'Knock-Down'" class="bg-red-300 px-3 py-1 rounded-3xl text-center">Knock-Down</div>
+                            <div *ngSwitchCase="'Knock-Back'" class="bg-orange-300 px-3 py-1 rounded-3xl text-center">Knock-Back</div>
+                            <div *ngSwitchCase="'Mid-Air'" class="bg-blue-300 px-3 py-1 rounded-3xl text-center">Mid-Air</div>
+                            <div *ngSwitchCase="'Flying'" class="bg-purple-300 px-3 py-1 rounded-3xl text-center">Flying</div>
+                            <div *ngSwitchCase="'Healing'" class="bg-green-300 px-3 py-1 rounded-3xl text-center">Healing</div>
+                            <div *ngSwitchCase="'NA'" class="bg-gray-300 px-3 py-1 rounded-3xl text-center">N/A</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

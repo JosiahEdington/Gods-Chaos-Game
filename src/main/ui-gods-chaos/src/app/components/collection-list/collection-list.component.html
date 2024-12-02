@@ -6,25 +6,26 @@
     </div>
         <div class="max-w mt-2 mb-5 grid grid-cols-1 gap-x-6 sm:grid-cols-6">
                 <form class="sm:col-span-3 sm:col-start-2">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 placeholder:text-gray-500" aria-placeholder="Username" placeholder="Username" >
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" [ngModel]="username" (ngModelChange)="updateUsername($event)" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 placeholder:text-gray-500" aria-placeholder="Username" placeholder="Username" >
                 </form>
 
                 <form class="sm:col-span-2 sm:col-start-5">
-                    <label for="sort_heroes_by">Sort By:</label>
-                    <select id="sort_heroes_by" name="sort_heroes_by" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 bg-white" aria-placeholder="Default">
+                    <label for="sortBy">Sort By:</label>
+                    <select id="sortBy" name="sortBy" [ngModel]="sortBy" (ngModelChange)="sortByField($event)" class="border-2 border-gray-600 rounded-md ml-2 px-2 py-1 bg-white" aria-placeholder="Default">
                         <option value="Default">Default</option>
                         <option value="Name">Name</option>
                         <option value="Culture">Culture</option>
-                        <option value="Owned">Owned</option>
                         <option value="Power">Power</option>
+                        <option value="Star">Star</option>
+                        <option value="Level">Level</option>
                     </select>
                 </form>
         </div>
     <div *ngFor="let collection of collections" class="my-4">
-        @if ( collection.player.username === username) {
+        @if ( collection.player.username.includes(username)) {
         <div>
-            <h1 class="text-xl mt-5"><strong>{{ collection.player.username }}</strong> and {{ username }}</h1>
+            <h1 class="text-xl mt-5"><strong>{{ collection.player.username }}</strong></h1>
         </div>
 
         <table class="table-auto">

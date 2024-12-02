@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeroListComponent } from './components/hero-list/hero-list.component';
@@ -8,7 +9,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { AppResponseService } from './services/app-responses.service';
 import { HeroesService } from './services/heroes.service';
 import { RouterModule } from '@angular/router';
@@ -29,7 +29,8 @@ import { routes } from './app.routes';
     BrowserModule,
     ReactiveFormsModule,
     CommonModule,
-    NgModule
+    NgModule,
+    FormsModule
   ],
   providers: [
     HttpClientModule,

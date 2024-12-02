@@ -20,4 +20,8 @@ export class CollectionService {
     return this.httpClient.get<Collection[]>(this.collectionUrl);
   }
 
+  getCollectionByUsername(theUsername:string): Observable<Collection> {
+      return this.httpClient.get<Collection>(`${this.collectionUrl}?username=${theUsername}`)
+  }
+
 }
